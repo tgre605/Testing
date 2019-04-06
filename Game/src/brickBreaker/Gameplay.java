@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.Timer;
 import java.awt.Graphics2D;
+import java.util.Random;
 
 public class Gameplay extends JPanel implements KeyListener, ActionListener {
     private boolean play = false;
@@ -19,7 +20,8 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
 
     private int playerX = 310;
 
-    private int ballPosX = 120;
+    Random rand = new Random();
+    private int ballPosX = rand.nextInt(400) + 1;
     private int ballPosY = 350;
     private int ballXdir = -1;
     private int ballYdir = -2;
@@ -37,7 +39,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
 
     public void paint(Graphics g){
         //background
-        g.setColor(Color.BLACK);
+        g.setColor(Color.GRAY);
         g.fillRect(1,1,692,592);
 
         //drawing map
@@ -160,7 +162,8 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
         if(e.getKeyCode()==KeyEvent.VK_ENTER){
             if(!play){
                 play = true;
-                ballPosX = 120;
+                Random rand = new Random();
+                ballPosX = rand.nextInt(400) + 1;
                 ballPosY = 350;
                 ballXdir = -1;
                 ballYdir = -2;
